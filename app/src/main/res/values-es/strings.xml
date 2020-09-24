@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Comercios</string>
+    <string name="location">Ordenar por localización</string>
+    <string name="filter_category">Filtrar por categoría</string>
+    <string name="contact">Contacto</string>
+    <string name="address">Dirección</string>
+    <string name="enable_location">Activa tu ubicación, por favor.</string>
+    <string name="location_permission">Permiso de localización</string>
+    <string name="location_necessary">Para habilitar esta funcionalidad es necesario otorgar el permiso de localización.</string>
+    <string name="give_permission">Dar permiso</string>
+</resources>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="selectedCommerce"
+            type="com.rocappdev.commercelist.domain.Commerce" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp">
+
+            <TextView
+                android:id="@+id/category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{selectedCommerce.category}"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="@{TextUtils.isEmpty(selectedCommerce.category) ? View.GONE : View.VISIBLE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:drawableEndCompat="@drawable/ic_shopping"
+                tools:text="SHOPPING" />
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_commerce"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/category"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/description"
+                style="@style/regularText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{selectedCommerce.description}"
+                android:visibility="@{TextUtils.isEmpty(selectedCommerce.description) ? View.GONE : View.VISIBLE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/logo"
+                tools:text="Short description" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/features"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/description"
+                app:singleSelection="false" />
+
+            <TextView
+                android:id="@+id/address_title"
+                style="@style/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/address"
+                android:visibility="@{TextUtils.isEmpty(selectedCommerce.address.city) ? View.GONE : View.VISIBLE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/features" />
+
+            <TextView
+                android:id="@+id/address"
+                style="@style/regularText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="@{TextUtils.isEmpty(selectedCommerce.address.city) ? View.GONE : View.VISIBLE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/address_title" />
+
+            <TextView
+                android:id="@+id/contact"
+                style="@style/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/contact"
+                android:visibility="@{selectedCommerce.contact == null ? View.GONE : View.VISIBLE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/address" />
+
+            <TextView
+                android:id="@+id/phone"
+                style="@style/regularText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:text="@{selectedCommerce.contact.phone}"
+                android:visibility="@{TextUtils.isEmpty(selectedCommerce.contact.phone) ? View.GONE : View.VISIBLE}"
+                app:drawableStartCompat="@drawable/ic_phone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/contact"
+                tools:text="978378900" />
+
+            <TextView
+                android:id="@+id/email"
+                style="@style/regularText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:text="@{selectedCommerce.contact.email}"
+                android:visibility="@{TextUtils.isEmpty(selectedCommerce.contact.email) ? View.GONE : View.VISIBLE}"
+                app:drawableStartCompat="@drawable/ic_email"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/phone" />
+
+            <TextView
+                android:id="@+id/web"
+                style="@style/regularText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:lines="1"
+                android:text="@{selectedCommerce.contact.web}"
+                android:visibility="@{TextUtils.isEmpty(selectedCommerce.contact.web) ? View.GONE : View.VISIBLE}"
+                app:drawableStartCompat="@drawable/ic_web"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/email" />
+
+            <ImageButton
+                android:id="@+id/facebook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@android:color/transparent"
+                android:textColor="@color/colorPrimary"
+                android:visibility="@{TextUtils.isEmpty(selectedCommerce.social.facebook) ? View.GONE : View.VISIBLE}"
+                app:layout_constraintEnd_toStartOf="@+id/instagram"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/web"
+                app:srcCompat="@drawable/ic_facebook"
+                tools:ignore="ContentDescription" />
+
+            <ImageButton
+                android:id="@+id/instagram"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:textColor="@color/colorPrimary"
+                android:visibility="@{TextUtils.isEmpty(selectedCommerce.social.instagram) ? View.GONE : View.VISIBLE}"
+                app:layout_constraintEnd_toStartOf="@+id/twitter"
+                app:layout_constraintStart_toEndOf="@+id/facebook"
+                app:layout_constraintTop_toTopOf="@id/facebook"
+                app:srcCompat="@drawable/ic_instagram"
+                tools:ignore="ContentDescription" />
+
+            <ImageButton
+                android:id="@+id/twitter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:visibility="@{TextUtils.isEmpty(selectedCommerce.social.twitter) ? View.GONE : View.VISIBLE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/instagram"
+                app:layout_constraintTop_toTopOf="@id/instagram"
+                app:srcCompat="@drawable/ic_twitter"
+                tools:ignore="ContentDescription" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>
