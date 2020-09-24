@@ -58,9 +58,9 @@ class CommerceListViewModel : ViewModel() {
         var filteredList = allCommerces.toMutableList()
 
         _loading.postValue(true)
-        if (category.category_name != Categories.ALL.category_name) {
+        if (category.categoryName != Categories.ALL.categoryName) {
             filteredList =
-                (filteredList.filter { commerce -> commerce.category == category.category_name }).toMutableList()
+                (filteredList.filter { commerce -> commerce.category == category.categoryName }).toMutableList()
         }
         Log.d(TAG, filteredList.toString())
         _commerceList.postValue(CommerceList(filteredList))

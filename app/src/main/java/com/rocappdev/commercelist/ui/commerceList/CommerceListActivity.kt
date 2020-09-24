@@ -111,7 +111,7 @@ class CommerceListActivity : AppCompatActivity() {
 
         val categories = arrayListOf<String>()
         Categories.values().forEach {
-            categories.add(it.category_name)
+            categories.add(it.categoryName)
         }
 
         builder.setSingleChoiceItems(categories.toTypedArray(), checkedItem) { dialog, selected ->

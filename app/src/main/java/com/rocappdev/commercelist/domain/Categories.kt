@@ -1,6 +1,6 @@
 package com.rocappdev.commercelist.domain
 
-enum class Categories(val category_name: String) {
+enum class Categories(val categoryName: String) {
     ALL("ALL"),
     FOOD("FOOD"),
     BEAUTY("BEAUTY"),

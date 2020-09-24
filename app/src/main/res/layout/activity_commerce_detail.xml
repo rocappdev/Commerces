@@ -57,6 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@{selectedCommerce.description}"
+                android:textColor="@color/colorPrimaryDark"
                 android:visibility="@{TextUtils.isEmpty(selectedCommerce.description) ? View.GONE : View.VISIBLE}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/logo"

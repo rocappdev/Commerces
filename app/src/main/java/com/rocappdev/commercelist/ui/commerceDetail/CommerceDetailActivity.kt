@@ -74,13 +74,13 @@ class CommerceDetailActivity : AppCompatActivity() {
         }
 
         when (selectedCommerce.category) {
-            Categories.FOOD.category_name -> {
+            Categories.FOOD.categoryName -> {
                 categoryIcon = R.drawable.ic_food
             }
-            Categories.BEAUTY.category_name -> {
+            Categories.BEAUTY.categoryName -> {
                 categoryIcon = R.drawable.ic_beauty
             }
-            Categories.SHOPPING.category_name -> {
+            Categories.SHOPPING.categoryName -> {
                 categoryIcon = R.drawable.ic_shopping
             }
         }

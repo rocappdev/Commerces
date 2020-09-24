@@ -60,7 +60,7 @@ class CommerceListAdapter(
         }
 
         when (commerce.category) {
-            Categories.FOOD.category_name -> {
+            Categories.FOOD.categoryName -> {
                 holder.itemView.category_logo.setImageDrawable(
                     ContextCompat.getDrawable(
                         context,
@@ -68,7 +68,7 @@ class CommerceListAdapter(
                     )
                 )
             }
-            Categories.BEAUTY.category_name -> {
+            Categories.BEAUTY.categoryName -> {
                 holder.itemView.category_logo.setImageDrawable(
                     ContextCompat.getDrawable(
                         context,
@@ -76,7 +76,7 @@ class CommerceListAdapter(
                     )
                 )
             }
-            Categories.SHOPPING.category_name -> {
+            Categories.SHOPPING.categoryName -> {
                 holder.itemView.category_logo.setImageDrawable(
                     ContextCompat.getDrawable(
                         context,
